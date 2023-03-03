@@ -15,5 +15,4 @@ app.get('/josh', function(req, resp){
     resp.send(Joshua)
 })
 
-app.listen(8090)
-console.log('Server running at 127.0.0.1:8090')
+module.exports = app;
