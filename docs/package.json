@@ -1,7 +1,7 @@
 {
   "name": "summative2",
-  "version": "0.2.0",
-  "description": "COMP1111 Programming Gold Summative 2 (Term 2) Durham University 2022-23: Build full-stack webpage",
+  "version": "0.3.0",
+  "description": "get: /josh, post: /josh/add",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

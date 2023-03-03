@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             .catch( (error) => alert(error))
     });
 }
-)
+);
 
 function renderRepertoire (rep){
     //alert(rep);
@@ -36,4 +36,21 @@ function renderRepertoire (rep){
        item.innerHTML = piece;
        container.appendChild(item);
     }
-    }
+};
+
+let submit = document.getElementById('submit_piece');
+
+submit.addEventListener('click', async function(event){
+   event.preventDefault();
+   let newpiece = document.getElementById('newpiece').value;
+   let parameters = {'newpiece': newpiece};
+   let response = await fetch('http://127.0.0.1:8090/josh/add',{
+   method: 'POST',
+   headers: {
+      'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(parameters)
+});
+let body = await response.json();
+renderRepertoire(body);
+})
