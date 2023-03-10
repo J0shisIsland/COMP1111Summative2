@@ -12,20 +12,17 @@ document.addEventListener('DOMContentLoaded', () =>{
          .catch( (error) => alert(error))
     });
 
-    document.getElementById("Repertoire")
-    .addEventListener('click', function (event){
-        event.preventDefault();
-        fetch('http://127.0.0.1:8090/josh')
-            .then(response => response.json())
-            .then(body => renderRepertoire(body.repertoire))
-               //{
-               //  //console.log(body); 
-               //  document.getElementById('Repertoire').innerHTML=body.repertoire
-               // })
-            .catch( (error) => alert(error))
+    let getRepertoire = document.getElementById("Repertoire");
+
+     fetch('http://127.0.0.1:8090/josh')
+        .then(response => response.json())
+        .then(body => renderRepertoire(body.repertoire))
+            //{
+            //  //console.log(body); 
+            //  document.getElementById('Repertoire').innerHTML=body.repertoire
+            // })
+        .catch( (error) => alert(error))
     });
-}
-);
 
 function renderRepertoire (rep){
     //alert(rep);
