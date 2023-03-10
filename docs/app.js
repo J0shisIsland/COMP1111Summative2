@@ -5,13 +5,24 @@ app.use(express.static('client'));
 app.use(express.json()); // Parse URL-encoded bodies
 
 class musical {
-  constructor(id, title, composer, scoring, star) {
+  constructor(id, title, composer, songs, scoring, star) {
     this.id = id;
     this.title = title;
     this.composer = composer;
+    this.songs = songs
     this.scoring = scoring;
     this.star = star;
   }
+}
+
+class song {
+    constructor(id, title, musical, scoring, star) {
+        this.id = id;
+        this.title = title;
+        this.musical = musical;
+        this.scoring = scoring;
+        this.star = star;
+    }
 }
 
 const Joshua = {
