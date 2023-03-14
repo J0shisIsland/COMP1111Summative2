@@ -9,7 +9,7 @@ function Musical(id, title, composer, songs, scoring) {
     this.title = title;
     this.composer = composer;
     this.songs = songs;
-    this.scoring = scoring
+    this.scoring = scoring;
   }
 
 const kinkyboots = new Musical (

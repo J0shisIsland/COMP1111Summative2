@@ -1,7 +1,7 @@
 {
   "name": "summative2",
   "version": "1.0.1",
-  "description": "get: /josh, post: /josh/add",
+  "description": "get: /josh, get: /kink, post: /josh/add",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
