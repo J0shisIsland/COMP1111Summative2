@@ -12,12 +12,15 @@
         crossorigin="anonymous" />
     -->
   
-    <title>Musicians</title>
+    <title>Musical Database</title>
 </head>
  
 <body>
-<h1>Violinists</h1>
-<h2>Joshua S</h2>
+
+<h1 id="Title"></h1>
+<p id="Composer"></p>
+<p id="Songs"><button type="button">See Songs</button></p> 
+<ul id="Scoring"></ul>
 
 <p>Level:</p>
 <ul id='Level'>
@@ -25,9 +28,7 @@
 </ul>
 
 <p>Repertoire:</p>
-<ul id='Repertoire'>
-    <button type="button">See Repertoire</button>
-</ul>
+<ul id='Repertoire'></ul>
 
 <form action='http://127.0.0.1:8090/josh/add' method='post'>
     <input id ='newpiece' type='text'>

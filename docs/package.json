@@ -1,6 +1,6 @@
 {
   "name": "summative2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get: /josh, post: /josh/add",
   "main": "server.js",
   "scripts": {

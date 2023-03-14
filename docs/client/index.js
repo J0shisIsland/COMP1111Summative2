@@ -9,6 +9,16 @@ function renderRepertoire(rep) {
   }
 }
 
+function renderMusicals(database) {
+  const container = document.getElementById('Musicals');
+  container.innerHTML = '';
+  for (const piece of database) {
+    const item = document.createElement('li');
+    item.innerHTML = piece;
+    container.appendChild(item)
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('Level')
     .addEventListener('click', (event) => {
