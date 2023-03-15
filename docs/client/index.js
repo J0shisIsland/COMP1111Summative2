@@ -1,3 +1,31 @@
+function renderMusicals(musicals) {
+  console.log(musicals);
+  document.getElementById('musical').innerHTML='';
+    musicals.forEach((musical) => {
+      let newTile = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${musical.title}</h5>
+            <p class="card-text"><b>Composers: </b>${musical.composer}<br>
+            <button type="button" onclick="renderVoices(${musical.voices})">Vocal Parts</button>
+            <ul id="voices"></ul></p>
+          </div>
+        </div>`;
+      document.getElementById('musical').innerHTML += newTile;
+    })
+}
+
+function renderVoices(scoring) {
+  console.log(scoring);
+  const container = document.getElementById('voices');
+  container.innerHTML = '';
+  for (const part of scoring) {
+    const item = document.createElement('li');
+    item.innerHTML = part;
+    container.appendChild(item)
+  }
+}
+
 function renderRepertoire(rep) {
   // alert(rep);
   const container = document.getElementById('Repertoire');
@@ -30,6 +58,11 @@ function renderScoring(scoring) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  fetch('http://127.0.0.1:8090/musicals')
+  .then((response) => response.json())
+  .then((body) => renderMusicals(body))
+  .catch((error) => alert(error));
+  
   fetch('http://127.0.0.1:8090/kink')
   .then((response) => response.json())
   .then((body) => renderTitle(body.title))

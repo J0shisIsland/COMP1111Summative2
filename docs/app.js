@@ -4,6 +4,14 @@ const app = express();
 app.use(express.static('client'));
 app.use(express.json()); // Parse URL-encoded bodies
 
+// const cors = require('cors');
+// app.use(cors());
+
+const musicals = require('./musicals.json');
+app.get('/musicals', (req, res) => {
+  res.json(musicals);
+});
+
 function Musical(id, title, composer, songs, scoring) {
     this.id = id;
     this.title = title;
@@ -19,6 +27,7 @@ const kinkyboots = new Musical (
   ['kink_price', 'kink_take', 'kink_land', 'kink_charl', 'kink_step', 'kink_sex', 'kink_hist', 'kink_father', 'kink_every', 'kink_what', 'kink_corner', 'kink_charl_repr', 'kink_soul', 'kink_hold', 'kink_raise'],
   ['tenor', 'tenor', 'baritone', 'baritone', 'mezzo-soprano', 'mezzo-soprano', 'alto', 'mezzo-soprano', 'boy', 'boy']
 );
+
 
 function Song(id, title, musical, scoring, star) {
         this.id = id;
