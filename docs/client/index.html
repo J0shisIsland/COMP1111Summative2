@@ -13,8 +13,37 @@
 </head>
  
 <body>
+<!--header, navbar-->
+<a href="#musical" class="link-light">Musical Database</a>
+<a href="#comment" class="link-light">Comment Section</a>
 
+<!--Search entities of "musicals"-->
+
+<!--GET object "musicals"-->
 <div id="musical"></div>
+
+<!--POST new entity to object "musicals"-->
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Add a new musical!</h5>
+        <p class="card-text">
+            <form action='http://127.0.0.1:8090/musicals/add' method='post', enctype="multipart/form-data">
+                <label for="newtitle"><b>Title: </b></label>
+                <input id ='newtitle' type='text' name="title"><br><br>
+                <label for="newcomposer"><b>Composer(s): </b></label>
+                <input id ='newcomposer' type='text' name="composer"><br><br>
+                <label for="newvoices"><b>Vocal Parts: </b></label>
+                <input id="newvoices" type="text" name="voices"><br><br>
+                <input id='submit_musical' type='submit' value='Add Musical to Database!'>
+            </form>
+        </p>
+    </div>
+</div>
+
+<!--GET object "comments"-->
+<div id="comment"></div>
+
+<!--POST new entity to object "comments"-->
 
 <p>ALERT: OLD STUFF BELOW</p>
 

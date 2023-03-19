@@ -9,7 +9,7 @@ function renderMusicals(musicals) {
             <p class="card-text"><b>Composers: </b>${musical.composer}<br>
             <b>Vocal Parts: </b><br>
             <ul id="voices">`;
-              musical.voices.forEach((voice) => {
+              musical.voices.split(/,\s*/).forEach((voice) => {
                 newTile += `<li>${voice}</li>`;
               });`
             </ul></p>
@@ -19,6 +19,32 @@ function renderMusicals(musicals) {
     })
 }
 
+const submitMusical = document.getElementById('submit_musical');
+
+submitMusical.addEventListener('click', async (event) => {
+  event.preventDefault();
+  const newtitle = document.getElementById('newtitle').value;
+  const newcomposer = document.getElementById('newcomposer').value;
+  const newvoices = document.getElementById('newvoices').value;
+  const newmusical = {
+    title: newtitle,
+    composer: newcomposer,
+    voices: newvoices,
+  };
+  fetch('http://127.0.0.1:8090/musicals/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newmusical),
+  });
+  fetch('http://127.0.0.1:8090/musicals')
+  .then((response) => response.json())
+  .then((body) => renderMusicals(body))
+  .catch((error) => alert(error));
+});
+
+//ALERT: Old stuff below
 function renderRepertoire(rep) {
   // alert(rep);
   const container = document.getElementById('Repertoire');
