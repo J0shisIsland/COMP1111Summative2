@@ -1,0 +1,32 @@
+[
+    {
+    "id": "kinkyboots",
+    "title": "Kinky Boots",
+    "composer": "Cindy Lauper, Harvey Fierstein",
+    "voices": "Tenor, Tenor, Baritone, Baritone, Mezzo-soprano, Mezzo-soprano, Alto, Mezzo-soprano, Boy, Boy"
+    },
+    {
+    "id": "hellodolly",
+    "title": "Hello, Dolly!",
+    "composer": "Jerry Herman, Michael Stewart",
+    "voices": "Soprano, Bass, Tenor, Tenor, Mezzo-soprano, Mezzo-soprano, Tenor, Alto"
+    }, 
+    {
+    "id": "rent",
+    "title": "RENT",
+    "composer": "Jonathan Larson",
+    "voices": "Tenor, Tenor, Mezzo-soprano, Tenor, Baritone, Bass, Mezzo-soprano, Mezzo-soprano"
+    }, 
+    {
+    "id": "ooti",
+    "title": "Once On This Island",
+    "composer": "Stephen Flaherty, Lynn Ahrens",
+    "voices": "Soprano, Baritone, Mezzo-soprano, Mezzo-soprano, Tenor, Tenor, Alto, Alto, Bass"
+    }, 
+    {
+    "id": "bemorechill",
+    "title": "Be More Chill",
+    "composer": "Joe Iconis, Joe Tracz",
+    "voices": "Baritone, Tenor, Soprano, Tenor, Alto, Mezzo-Soprano, Baritone, Mezzo-Soprano, Baritone, Bass"
+    }
+]
