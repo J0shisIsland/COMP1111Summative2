@@ -12,6 +12,11 @@ app.get('/musicals', (req, res) => {
   res.json(musicals);
 });
 
+const comments = require('./comments.json');
+app.get('/comments', (req, res) => {
+  res.json(comments);
+})
+
 function Musical(id, title, composer, songs, scoring) {
     this.id = id;
     this.title = title;

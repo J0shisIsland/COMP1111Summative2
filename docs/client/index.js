@@ -9,7 +9,7 @@ function renderMusicals(musicals) {
             <p class="card-text"><b>Composers: </b>${musical.composer}<br>
             <b>Vocal Parts: </b><br>
             <ul id="voices">`;
-              musical.voices.split(/,\s*/).forEach((voice) => {
+              musical.voices.forEach((voice) => {
                 newTile += `<li>${voice}</li>`;
               });`
             </ul></p>

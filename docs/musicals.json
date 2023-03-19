@@ -3,7 +3,12 @@
     "id": "kinkyboots",
     "title": "Kinky Boots",
     "composer": "Cindy Lauper, Harvey Fierstein",
-    "voices": "Tenor, Tenor, Baritone, Baritone, Mezzo-soprano, Mezzo-soprano, Alto, Mezzo-soprano, Boy, Boy",
-    "comments": ""
+    "voices": ["Tenor", "Tenor", "Baritone", "Baritone", "Mezzo-soprano", "Mezzo-soprano", "Alto", "Mezzo-soprano", "Boy", "Boy"]
+    },
+    {
+    "id": "hellodolly",
+    "title": "Hello, Dolly!",
+    "composer": "Jerry Herman, Michael Stewart",
+    "voices": ["Soprano", "Bass", "Tenor", "Tenor", "Mezzo-soprano", "Mezzo-soprano", "Tenor", "Alto"]
     }
 ]
