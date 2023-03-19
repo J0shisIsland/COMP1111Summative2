@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 app.use(express.static('client'));
 app.use(express.json()); // Parse URL-encoded bodies
-//app.use(express.urlencoded());
+// app.use(express.urlencoded());
 
 // const cors = require('cors');
 // app.use(cors());
@@ -13,12 +13,10 @@ app.get('/musicals', (req, res) => {
   res.json(musicals);
 });
 app.post('/musicals/add', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const newmusical = req.body;
   musicals.push(newmusical);
-  console.log(musicals);
-  //renderMusicals(musicals)
-  //window.alert('Thanks for submitting a new musical!')
+  // console.log(musicals);
 });
 
 const comments = require('./comments.json');

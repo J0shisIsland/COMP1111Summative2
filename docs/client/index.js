@@ -37,7 +37,14 @@ submitMusical.addEventListener('click', async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(newmusical),
-  });
+  }).then((response) => {
+    if (response.ok) {
+      console.log('Thanks for submitting a new musical!');
+    } else {
+      alert('error');
+    }
+  }).catch((error) => alert(error));
+
   fetch('http://127.0.0.1:8090/musicals')
   .then((response) => response.json())
   .then((body) => renderMusicals(body))
