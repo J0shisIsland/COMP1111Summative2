@@ -19,7 +19,7 @@ function renderMusicals(musicals) {
         </div>
         `;
       document.getElementById('musical').innerHTML += newTile;
-    })
+    });
 }
 
 const submitMusical = document.getElementById('submit_musical');
@@ -54,6 +54,27 @@ submitMusical.addEventListener('click', async (event) => {
   .catch((error) => alert(error));
 });
 
+function renderComments(comments) {
+  console.log(comments);
+  document.getElementById('comment').innerHTML='';
+  comments.forEach((comment) => {
+    let newTile = `
+    <div class="col-xl-12 col-lg-12 mb-4">
+      <div class="tm-bg-gray p-5 h-100">
+        <h3 class="tm-text-primary mb-3">${comment.user}:</h3>
+        <p class="mb-5">${comment.text}</p>
+      </div>
+    </div>
+    `;
+    document.getElementById('comment').innerHTML += newTile;
+  });
+}
+
+const submitComment = document.getElementById('submit_comment');
+
+// submitComment.addEventListener('click', async (event) => {
+//  event.preventDefault();
+
 //  document.getElementById('Level')
 //    .addEventListener('click', (event) => {
 //      event.preventDefault();
@@ -70,5 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('http://127.0.0.1:8090/musicals')
   .then((response) => response.json())
   .then((body) => renderMusicals(body))
+  .catch((error) => alert(error));
+
+  fetch('http://127.0.0.1:8090/comments')
+  .then((response) => response.json())
+  .then((body) => renderComments(body))
   .catch((error) => alert(error));
 })
