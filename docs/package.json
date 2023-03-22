@@ -1,6 +1,6 @@
 {
   "name": "summative2",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "get: /musicals, get: /comments, post: /musicals/add, post: comments/add",
   "main": "server.js",
   "scripts": {

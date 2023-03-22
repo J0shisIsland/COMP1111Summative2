@@ -72,8 +72,33 @@ function renderComments(comments) {
 
 const submitComment = document.getElementById('submit_comment');
 
-// submitComment.addEventListener('click', async (event) => {
-//  event.preventDefault();
+submitComment.addEventListener('click', async (event) => {
+ event.preventDefault();
+ const newuser = document.getElementById('newuser').value;
+ const newtext = document.getElementById('newtext').value;
+ const newcomment = {
+  user: newuser,
+  text: newtext,
+ };
+ fetch('http://127.0.0.1:8090/comments/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newcomment),
+  }).then((response) => {
+    if (response.ok) {
+      console.log('Thanks for submitting your comment!');
+    } else {
+      alert('error');
+    }
+  }).catch((error) => alert(error));
+
+  fetch('http://127.0.0.1:8090/comments')
+  .then((response) => response.json())
+  .then((body) => renderComments(body))
+  .catch((error) => alert(error));
+});
 
 //  document.getElementById('Level')
 //    .addEventListener('click', (event) => {

@@ -23,7 +23,7 @@ const comments = require('./comments.json');
 app.get('/comments', (req, res) => {
   res.json(comments);
 });
-app.post('comments/add', (req, res) => {
+app.post('/comments/add', (req, res) => {
   const newcomment = req.body;
   comments.push(newcomment);
 });

@@ -120,9 +120,11 @@
                     <div class="col-xl-12 col-lg-12 mb-4">
                         <div class="p-5 tm-bg-gray">
                             <h3 class="tm-text-primary mb-4">Post a Comment</h3>
-                            <form id="commentform" action='http://127.0.0.1:8090/comments/add' method='post', enctype="multipart/form-data" class="tm-subscribe-form">
+                            <form id="commentform" action='http://127.0.0.1:8090/comments/add' method='post', enctype="multipart/form-data">
+                                <label for="newuser"><span class="tm-text-secondary">Username: </span></label>
                                 <input id="newuser" type="text" name="user"><br><br>
-                                <textarea rows="5" cols="50" id="newtext" name="text" form="commentform">Enter your comment here!</textarea>
+                                <textarea rows="5" cols="60" id="newtext" name="text" form="commentform" placeholder="Enter your comment here..."></textarea><br><br>
+                                <input id='submit_comment' type='submit' class="btn rounded-0 btn-primary tm-btn-small" value='Comment'>
                             </form>   
                         </div>                        
                     </div>
