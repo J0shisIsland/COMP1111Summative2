@@ -78,23 +78,16 @@
                             <div class="tm-categories-container mb-5">
                                 <!--Search instances of "musicals"--> 
                                 <form action="http://127.0.0.1:8090/musicals/search?field=f&query=q" method="get" enctype="multipart/form-data">
-                                <div class="row">
-                                    <h3 class="tm-text-primary tm-categories-text">Search:</h3>
-                                    <div class="col">
-                                        <input id="query" type="text" name="q" class="form-control">
-                                    </div>
-                                    <h3 class="tm-text-primary tm-categories-text">In: </h3>
-                                    <div class="col">
+                                <label for="query"><span class="tm-text-primary tm-categories-text">Search:</span></label>
+                                <input id="query" type="text" name="q" class="form-control">
+                                <label for="field"><span class="tm-text-primary tm-categories-text">In: </span></label>
                                         <select id="field" name="f" class="form-control">
                                             <option value="title">Title</option>
                                             <option value="composer">Composer</option>
                                             <option value="voices">Voices</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <input id='search_musicals' type='submit' class="btn rounded-0 btn-primary tm-btn-small" value='Search Database'>
-                                    </div>
-                                    </div>
+                                        </select><br>
+                                <input id='search_musicals' type='submit' class="btn rounded-0 btn-primary tm-btn-small" value='Search Database'>
+                                <input id="show_musicals" type="submit" class="btn rounded-0 btn-primary tm-btn-small" value="Show all"></button>
                                 </form>                               
                             </div>        
                         </div>
@@ -126,8 +119,18 @@
                     <div class="col-12">
                         <h2 class="tm-page-title mb-4">Comments</h2>
                         <div class="tm-categories-container mb-5">
-                            <h3 class="tm-text-primary tm-categories-text">Search:</h3>
-                            <!--Search instances of "comments"-->                                
+                            <!--Search instances of "comments"--> 
+                            <form action="http://127.0.0.1:8090/comments/search?field=f&query=q" method="get" enctype="multipart/form-data">
+                                        <label for="comment_query"><span class="tm-text-primary tm-categories-text">Search:</span></label>
+                                        <input id="comment_query" type="text" name="q" class="form-control">
+                                        <label for="comment_field"><span class="tm-text-primary tm-categories-text">In: </span></label>
+                                        <select id="comment_field" name="f" class="form-control">
+                                            <option value="user">Username</option>
+                                            <option value="text">Text</option>
+                                        </select><br>
+                                    <input id='search_comments' type='submit' class="btn rounded-0 btn-primary tm-btn-small" value='Search Comments'>
+                                    <input id="show_comments" type="submit" class="btn rounded-0 btn-primary tm-btn-small" value="Show all"></button>
+                                </form>                               
                         </div>        
                     </div>
                 </div>
@@ -141,7 +144,7 @@
                             <form id="commentform" action='http://127.0.0.1:8090/comments/add' method='post', enctype="multipart/form-data">
                                 <label for="newuser"><span class="tm-text-secondary">Username: </span></label>
                                 <input id="newuser" type="text" name="user"><br><br>
-                                <textarea rows="5" cols="70" id="newtext" name="text" form="commentform" placeholder="Enter your comment here..."></textarea><br><br>
+                                <textarea rows="5" id="newtext" name="text" form="commentform" placeholder="Enter your comment here..." class="form-control"></textarea><br>
                                 <input id='submit_comment' type='submit' class="btn rounded-0 btn-primary tm-btn-small" value='Comment'>
                             </form>   
                         </div>                        

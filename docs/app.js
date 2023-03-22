@@ -20,10 +20,10 @@ app.get('/musicals', (req, res) => {
 app.get('/musicals/search', (req, res) => {
   const searchField = req.query.field;
   const searchQuery = req.query.query;
-  let results = [];
+  const results = [];
 
-  for (let i = 0; i < musicals.length; i++) {
-    let musical = musicals[i];
+  for (let i = 0; i < musicals.length; i += 1) {
+    const musical = musicals[i];
     if (musical[searchField].includes(searchQuery)) {
       results.push(musical);
     }
@@ -35,6 +35,7 @@ app.post('/musicals/add', (req, res) => {
   // console.log(newmusical);
   musicals.push(newmusical);
   // console.log(musicals);
+  res.send('Thanks for contributing to the database.');
 });
 
 const comments = require('./comments.json');
@@ -43,23 +44,22 @@ app.get('/comments', (req, res) => {
   res.json(comments);
 });
 app.get('/comments/search', (req, res) => {
-  const searchUser = res.query.user;
-  const searchText = res.query.text;
-  let results = [];
+  const searchField = req.query.field;
+  const searchQuery = req.query.query;
+  const results = [];
 
-  for (let i = 0; i < comments.length; i++) {
-    let comment = comments[i];
-    if (comment.user.includes(searchUser)) {
-      results.push(comment);
-    }
-    if (comment.text.includes(searchText)) {
+  for (let i = 0; i < comments.length; i += 1) {
+    const comment = comments[i];
+    if (comment[searchField].includes(searchQuery)) {
       results.push(comment);
     }
   }
+  res.json(results);
 });
 app.post('/comments/add', (req, res) => {
   const newcomment = req.body;
   comments.push(newcomment);
+  res.send('Thanks for your comment.');
 });
 
 module.exports = app;
