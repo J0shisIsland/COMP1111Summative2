@@ -85,23 +85,23 @@
                     <!--GET object "musicals"-->
                     <div id="musical" class="row tm-catalog-item-list"></div>
 
-                    <!--POST new entity to object "musicals"-->
-                    <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                        <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                            <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Add a new musical!</h3>
-                            <p class="tm-catalog-item-text">
-                                <form action='http://127.0.0.1:8090/musicals/add' method='post', enctype="multipart/form-data">
-                                    <label for="newtitle"><span class="tm-text-secondary">Title: </span></label>
-                                    <input id ='newtitle' type='text' name="title"><br><br>
-                                    <label for="newcomposer"><span class="tm-text-secondary">Composer(s): </span></label>
-                                    <input id ='newcomposer' type='text' name="composer"><br><br>
-                                    <label for="newvoices"><span class="tm-text-secondary">Vocal Parts: </span></label>
-                                    <input id="newvoices" type="text" name="voices"><br><br>
-                                    <input id='submit_musical' type='submit' value='Add Musical to Database!'>
-                                </form> 
-                            </p>
+                        <!--POST new entity to object "musicals"-->
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Add a new musical!</h3>
+                                <p class="tm-catalog-item-text">
+                                    <form action='http://127.0.0.1:8090/musicals/add' method='post', enctype="multipart/form-data">
+                                        <label for="newtitle"><span class="tm-text-secondary">Title: </span></label><br>
+                                        <input id ='newtitle' type='text' name="title"><br><br>
+                                        <label for="newcomposer"><span class="tm-text-secondary">Composer(s): </span></label><br>
+                                        <input id ='newcomposer' type='text' name="composer"><br><br>
+                                        <label for="newvoices"><span class="tm-text-secondary">Vocal Parts: </span></label><br>
+                                        <input id="newvoices" type="text" name="voices"><br><br>
+                                        <input id='submit_musical' type='submit' value='Add Musical to Database!'>
+                                    </form> 
+                                </p>
+                            </div>
                         </div>
-                    </div>
                 </main>
                 
                 <div class="row mt-5 pt-3">
