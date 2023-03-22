@@ -1,7 +1,7 @@
 {
   "name": "summative2",
-  "version": "1.4.1",
-  "description": "get: /musicals, get: /comments, post: /musicals/add, post: comments/add",
+  "version": "1.5.0",
+  "description": "get: '/musicals', 'musicals/search', '/comments', '/comments/search'; post: '/musicals/add', 'comments/add'",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

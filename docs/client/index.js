@@ -1,3 +1,7 @@
+/**
+ * Formats instances of JSON object "musicals" as html
+ * @param {JSON object} musicals 
+ */
 function renderMusicals(musicals) {
   console.log(musicals);
   document.getElementById('musical').innerHTML='';
@@ -8,8 +12,8 @@ function renderMusicals(musicals) {
                 <h3 class="tm-text-primary mb-3 tm-catalog-item-title">${musical.title}</h3>
                 <p class="tm-catalog-item-text">
                     <span class="tm-text-secondary">Composers: </span>${musical.composer}<br>
-                    <span class="tm-text-secondary">Vocal Parts: </span><br>
-                    <ul id="voices">`;
+                    <span class="tm-text-secondary">Vocal Parts: </span>
+                    <ul id="voices" class="tm-footer-links">`;
                         musical.voices.split(/,\s*/).forEach((voice) => {
                         newTile += `<li>${voice}</li>`;
                     });`
@@ -22,8 +26,24 @@ function renderMusicals(musicals) {
     });
 }
 
+const searchMusicals = document.getElementById('search_musicals');
+
+/** Parses form data as parameters for /search URL and executes formatting function for results */
+searchMusicals.addEventListener('click', async (event) => {
+  event.preventDefault();
+  const field = document.getElementById('field').value;
+  const query = document.getElementById('query').value;
+  const searchLink = 'http://127.0.0.1:8090/musicals/search?field=' + field + '&query=' + query;
+  console.log(searchLink)
+  fetch(searchLink)
+  .then((response) => response.json())
+  .then((body) => renderMusicals(body))
+  .catch((error) => alert(error));
+});
+
 const submitMusical = document.getElementById('submit_musical');
 
+/** Parses form data to create new instance of object 'musicals' and executes formatting function */
 submitMusical.addEventListener('click', async (event) => {
   event.preventDefault();
   const newtitle = document.getElementById('newtitle').value;
@@ -54,6 +74,10 @@ submitMusical.addEventListener('click', async (event) => {
   .catch((error) => alert(error));
 });
 
+/**
+ * Formats instances of JSON object 'comments' as html
+ * @param {JSON object} comments 
+ */
 function renderComments(comments) {
   console.log(comments);
   document.getElementById('comment').innerHTML='';
@@ -72,6 +96,7 @@ function renderComments(comments) {
 
 const submitComment = document.getElementById('submit_comment');
 
+/** Parses form data to create new instance of object 'comments' and executes formatting function */
 submitComment.addEventListener('click', async (event) => {
  event.preventDefault();
  const newuser = document.getElementById('newuser').value;
@@ -112,6 +137,7 @@ submitComment.addEventListener('click', async (event) => {
 //        .catch((error) => alert(error));
 //    });
 
+// executes both formatting functions upon loading the page
 document.addEventListener('DOMContentLoaded', () => {
   fetch('http://127.0.0.1:8090/musicals')
   .then((response) => response.json())
