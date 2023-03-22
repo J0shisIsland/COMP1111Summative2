@@ -3,18 +3,21 @@ function renderMusicals(musicals) {
   document.getElementById('musical').innerHTML='';
     musicals.forEach((musical) => {
       let newTile = `
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">${musical.title}</h5>
-            <p class="card-text"><b>Composers: </b>${musical.composer}<br>
-            <b>Vocal Parts: </b><br>
-            <ul id="voices">`;
-              musical.voices.split(/,\s*/).forEach((voice) => {
-                newTile += `<li>${voice}</li>`;
-              });`
-            </ul></p>
-          </div>
-        </div>`;
+        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">${musical.title}</h3>
+                <p class="tm-catalog-item-text">
+                    <span class="tm-text-secondary">Composers: </span>${musical.composer}<br>
+                    <span class="tm-text-secondary">Vocal Parts: </span><br>
+                    <ul id="voices">`;
+                        musical.voices.split(/,\s*/).forEach((voice) => {
+                        newTile += `<li>${voice}</li>`;
+                    });`
+                    </ul>                
+                </p>
+            </div>
+        </div>
+        `;
       document.getElementById('musical').innerHTML += newTile;
     })
 }
