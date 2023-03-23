@@ -19,7 +19,6 @@
 </head>
  
 <body>
-
     <div class="tm-page-wrap mx-auto">
         <div class="position-relative">
             <div class="position-absolute tm-site-header">
@@ -166,47 +165,49 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+        /* eslint-disable no-undef */
+        /* eslint-disable func-names */
         function setVideoSize() {
-            const vidWidth = 1920;
-            const vidHeight = 1080;
-            let windowWidth = window.innerWidth;
-            let newVidWidth = windowWidth;
-            let newVidHeight = windowWidth * vidHeight / vidWidth;
-            let marginLeft = 0;
-            let marginTop = 0;
+          const vidWidth = 1920;
+          const vidHeight = 1080;
+          const windowWidth = window.innerWidth;
+          let newVidWidth = windowWidth;
+          let newVidHeight = (windowWidth * vidHeight) / vidWidth;
+          let marginLeft = 0;
+          let marginTop = 0;
 
-            if (newVidHeight < 500) {
-                newVidHeight = 500;
-                newVidWidth = newVidHeight * vidWidth / vidHeight;
-            }
+          if (newVidHeight < 500) {
+            newVidHeight = 500;
+            newVidWidth = (newVidHeight * vidWidth) / vidHeight;
+          }
 
-            if(newVidWidth > windowWidth) {
-                marginLeft = -((newVidWidth - windowWidth) / 2);
-            }
+          if (newVidWidth > windowWidth) {
+            marginLeft = -((newVidWidth - windowWidth) / 2);
+          }
 
-            if(newVidHeight > 720) {
-                marginTop = -((newVidHeight - $('#tm-video-container').height()) / 2);
-            }
+          if (newVidHeight > 720) {
+            marginTop = -((newVidHeight - $('#tm-video-container').height()) / 2);
+          }
 
-            const tmVideo = $('#tm-video');
+          const tmVideo = $('#tm-video');
 
-            tmVideo.css('width', newVidWidth);
-            tmVideo.css('height', newVidHeight);
-            tmVideo.css('margin-left', marginLeft);
-            tmVideo.css('margin-top', marginTop);
+          tmVideo.css('width', newVidWidth);
+          tmVideo.css('height', newVidHeight);
+          tmVideo.css('margin-left', marginLeft);
+          tmVideo.css('margin-top', marginTop);
         }
 
-        $(document).ready(function () {
-            /************** Video background *********/
+        $(document).ready(() => {
+          /** ************ Video background ******** */
 
-            setVideoSize();
+          setVideoSize();
 
-            // Set video background size based on window size
-            let timeout;
-            window.onresize = function () {
-                clearTimeout(timeout);
-                timeout = setTimeout(setVideoSize, 100);
-            };
-        })
+          // Set video background size based on window size
+          let timeout;
+          window.onresize = function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(setVideoSize, 100);
+          };
+        });
     </script>
 </body>
