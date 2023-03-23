@@ -69,3 +69,56 @@ describe('Test the Musical Database', () => {
     .get('/musicals/search?field=voices&query=Bass')
     .expect(/Bass/));
 });
+
+describe('Test the Comment Section', () => {
+  // test POSTing a new comment
+  test('POST /comments/add succeeds', () => {
+    const parameters = {
+      user: 'Testuser',
+      text: 'Testing comment section',
+    };
+    return request(app)
+      .post('/comments/add')
+      .send(parameters)
+      .expect(200);
+  });
+
+  // test GET /comments
+  test('GET /comments succeeds', () => request(app)
+    .get('/musicals')
+    .expect(200));
+
+  test('GET /comments returns JSON', () => request(app)
+    .get('/comments')
+    .expect('Content-type', /json/));
+
+  test('GET /comments includes Test', () => request(app)
+    .get('/comments')
+    .expect(/Test/));
+
+  // test user search
+  test('GET /comments/search?field=user&query=Test succeeds', () => request(app)
+    .get('/comments/search?field=user&query=Test')
+    .expect(200));
+
+  test('GET /comments/search?field=user&query=Test returns JSON', () => request(app)
+    .get('/comments/search?field=user&query=Test')
+    .expect('Content-type', /json/));
+
+  test('GET /comments/search?field=user&query=Test includes Test', () => request(app)
+    .get('/comments/search?field=user&query=Test')
+    .expect(/Test/));
+
+  // test text search
+  test('GET /comments/search?field=text&query=section succeeds', () => request(app)
+    .get('/comments/search?field=text&query=section')
+    .expect(200));
+
+  test('GET /comments/search?field=text&query=section returns JSON', () => request(app)
+    .get('/comments/search?field=text&query=section')
+    .expect('Content-type', /json/));
+
+  test('GET /comments/search?field=text&query=section includes section', () => request(app)
+    .get('/comments/search?field=text&query=section')
+    .expect(/section/));
+});
