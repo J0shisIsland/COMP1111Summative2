@@ -1,8 +1,9 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
+
 /**
  * Formats instances of JSON object "musicals" as html
- * @param {JSON object} musicals
+ * @param {Object} musicals - a JSON object of all musicals in the database
  */
 function renderMusicals(musicals) {
   console.log(musicals);
@@ -90,7 +91,7 @@ submitMusical.addEventListener('click', async (event) => {
 
 /**
  * Formats instances of JSON object 'comments' as html
- * @param {JSON object} comments
+ * @param {Object} comments - a JSON object of all comments
  */
 function renderComments(comments) {
   console.log(comments);
@@ -177,7 +178,7 @@ showComments.addEventListener('click', async (event) => {
 //        .catch((error) => alert(error));
 //    });
 
-// executes both formatting functions upon loading the page
+/** executes both formatting functions upon loading the page */
 document.addEventListener('DOMContentLoaded', () => {
   fetch('http://127.0.0.1:8090/musicals')
     .then((response) => response.json())
